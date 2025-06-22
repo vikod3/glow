@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Music, Sliders, Users } from 'lucide-react';
 
 interface SpecialFeatureCardProps {
   title: string;
@@ -29,15 +30,18 @@ export const SpecialFeatures: React.FC = () => {
   const features = [
     {
       title: "Create Inspiring Melodies",
-      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style."
+      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
+      icon: <Music className="w-12 h-12 text-white" />
     },
     {
       title: "Automated Mixing Mastering",
-      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style."
+      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
+      icon: <Sliders className="w-12 h-12 text-white" />
     },
     {
       title: "Real-Time Collaboration",
-      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style."
+      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
+      icon: <Users className="w-12 h-12 text-white" />
     }
   ];
 
@@ -60,6 +64,7 @@ export const SpecialFeatures: React.FC = () => {
             key={index}
             title={feature.title}
             description={feature.description}
+            iconComponent={feature.icon}
           />
         ))}
       </div>
