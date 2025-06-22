@@ -1,6 +1,5 @@
 import React from 'react';
 import { Image, SlidersHorizontal, Users } from 'lucide-react';
-
 interface SpecialFeatureCardProps {
   title: string;
   description: string;
