@@ -22,7 +22,13 @@ export const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="bg-[rgba(20,20,20,1)] flex min-h-[581px] w-full max-w-[1085px] mt-[88px] rounded-[55px] max-md:mt-10 max-md:min-h-[300px] max-md:rounded-[30px]" />
+      <div className="flex w-full max-w-[1085px] mt-[88px] rounded-[55px] max-md:mt-10 max-md:rounded-[30px] overflow-hidden">
+        <img
+          src="/lovable-uploads/bd1353e9-95fa-453a-9adb-4a89e832f7f0.png"
+          alt="AI Finance Dashboard Interface"
+          className="w-full h-auto min-h-[581px] max-md:min-h-[300px] object-cover"
+        />
+      </div>
     </section>
   );
 };
