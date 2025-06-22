@@ -33,34 +33,6 @@ export const ClientLogos: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        .animate-marquee {
-          animation: marquee 20s linear infinite;
-          width: calc(167px * 12 + 6px * 11); /* 12 logos + 11 gaps */
-        }
-        
-        @media (max-width: 768px) {
-          .animate-marquee {
-            width: calc(120px * 12 + 6px * 11);
-          }
-        }
-        
-        @media (max-width: 640px) {
-          .animate-marquee {
-            width: calc(100px * 12 + 6px * 11);
-          }
-        }
-      `}</style>
     </section>
   );
 };
