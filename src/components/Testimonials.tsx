@@ -20,7 +20,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, name, role, av
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, 0.01, -0.05, 0.95]
+        ease: "easeOut"
       }
     }
   };
@@ -76,7 +76,7 @@ export const Testimonials: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, 0.01, -0.05, 0.95]
+        ease: "easeOut"
       }
     }
   };
