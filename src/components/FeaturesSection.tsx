@@ -17,7 +17,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 }) => {
   return <article className={`items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] self-stretch flex h-[580px] flex-col overflow-hidden my-auto rounded-[32px] border-[1.5px] border-solid max-md:h-[500px] ${className}`}>
       {imageUrl && (
-        <div className="w-full h-48 overflow-hidden max-md:h-32">
+        <div className="w-full h-48 overflow-hidden max-md:h-32 mb-10">
           <img 
             src={imageUrl} 
             alt={title}
