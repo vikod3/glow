@@ -8,6 +8,7 @@ import { Testimonials } from '@/components/Testimonials';
 import { PricingSection } from '@/components/PricingSection';
 import { FAQSection } from '@/components/FAQSection';
 import { CTASection } from '@/components/CTASection';
+import { Footer } from '@/components/Footer';
 
 const Index: React.FC = () => {
   return (
@@ -29,6 +30,7 @@ const Index: React.FC = () => {
             <PricingSection />
             <FAQSection />
             <CTASection />
+            <Footer />
           </main>
         </div>
       </div>
