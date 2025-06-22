@@ -1,19 +1,16 @@
 import React from 'react';
 import { Image, Sliders, Users } from 'lucide-react';
-
 interface SpecialFeatureCardProps {
   title: string;
   description: string;
   iconComponent?: React.ReactNode;
 }
-
 const SpecialFeatureCard: React.FC<SpecialFeatureCardProps> = ({
   title,
   description,
   iconComponent
 }) => {
-  return (
-    <article className="justify-center items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] flex min-w-60 flex-col overflow-hidden grow shrink w-full max-w-[307px] px-4 py-9 rounded-[32px] border-[1.5px] border-solid hover:bg-[rgba(116,116,116,0.15)] transition-colors">
+  return <article className="justify-center items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] flex min-w-60 flex-col overflow-hidden grow shrink w-full max-w-[307px] px-4 py-9 rounded-[32px] border-[1.5px] border-solid hover:bg-[rgba(116,116,116,0.15)] transition-colors">
       <div className="flex w-full max-w-80 flex-col items-stretch">
         <div className="justify-center items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] self-center flex min-h-[70px] w-[70px] flex-col overflow-hidden h-[70px] px-[11px] rounded-[32px] border-[1.5px] border-solid">
           {iconComponent || <div className="flex min-h-12 w-full" />}
@@ -25,31 +22,29 @@ const SpecialFeatureCard: React.FC<SpecialFeatureCardProps> = ({
           {description}
         </p>
       </div>
-    </article>
-  );
+    </article>;
 };
-
 export const SpecialFeatures: React.FC = () => {
-  const features = [
-    {
-      title: "Create Inspiring Melodies",
-      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-      icon: <Image className="w-10 h-10" style={{ stroke: 'url(#icon-gradient)' }} />
-    },
-    {
-      title: "Automated Mixing Mastering",
-      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-      icon: <Sliders className="w-10 h-10" style={{ stroke: 'url(#icon-gradient)' }} />
-    },
-    {
-      title: "Real-Time Collaboration",
-      description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-      icon: <Users className="w-10 h-10" style={{ stroke: 'url(#icon-gradient)' }} />
-    }
-  ];
-
-  return (
-    <section className="flex w-full max-w-[1200px] flex-col items-stretch mt-[134px] px-4 max-md:mt-10 max-md:px-2">
+  const features = [{
+    title: "Create Inspiring Melodies",
+    description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
+    icon: <Image className="w-10 h-10" style={{
+      stroke: 'url(#icon-gradient)'
+    }} />
+  }, {
+    title: "Automated Mixing Mastering",
+    description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
+    icon: <Sliders style={{
+      stroke: 'url(#icon-gradient)'
+    }} className="w-10 h-10" />
+  }, {
+    title: "Real-Time Collaboration",
+    description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
+    icon: <Users className="w-10 h-10" style={{
+      stroke: 'url(#icon-gradient)'
+    }} />
+  }];
+  return <section className="flex w-full max-w-[1200px] flex-col items-stretch mt-[134px] px-4 max-md:mt-10 max-md:px-2">
       {/* SVG Gradient Definition */}
       <svg className="absolute w-0 h-0">
         <defs>
@@ -72,15 +67,7 @@ export const SpecialFeatures: React.FC = () => {
         </p>
       </header>
       <div className="flex w-full items-center gap-6 flex-wrap justify-center mt-20 max-md:mt-10 max-md:flex-col max-md:gap-4">
-        {features.map((feature, index) => (
-          <SpecialFeatureCard
-            key={index}
-            title={feature.title}
-            description={feature.description}
-            iconComponent={feature.icon}
-          />
-        ))}
+        {features.map((feature, index) => <SpecialFeatureCard key={index} title={feature.title} description={feature.description} iconComponent={feature.icon} />)}
       </div>
-    </section>
-  );
+    </section>;
 };
