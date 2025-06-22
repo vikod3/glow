@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Image, Sliders, Users } from 'lucide-react';
 interface SpecialFeatureCardProps {
