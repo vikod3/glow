@@ -36,7 +36,7 @@ const PricingPlan: React.FC<PricingPlanProps> = ({
         <div className="w-[278px] flex flex-col justify-start items-start gap-4">
           {features.map((feature, index) => <div key={index} className="flex justify-start items-center gap-2">
               <div className="w-6 h-6 relative overflow-hidden">
-                <Check className="w-3 h-2 absolute left-1.5 top-2 text-[#FF5552]" strokeWidth={3} />
+                <Check strokeWidth={3} className="w-4 h-4 absolute left-1.5 top-1.5 text-[#FF5552]" />
               </div>
               <div className="w-[244px] text-[#AAA] text-base font-normal leading-[27.2px]">{feature}</div>
             </div>)}
