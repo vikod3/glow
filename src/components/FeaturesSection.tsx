@@ -1,9 +1,12 @@
+
 import React from 'react';
+
 interface FeatureCardProps {
   title: string;
   description: string;
   className?: string;
 }
+
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
@@ -31,6 +34,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       </div>
     </article>;
 };
+
 export const FeaturesSection: React.FC = () => {
   return <section className="w-full max-w-[1200px] mt-[134px] px-4 max-md:mt-10 max-md:px-2">
       <div className="flex flex-col items-stretch max-md:max-w-full">
@@ -50,15 +54,6 @@ export const FeaturesSection: React.FC = () => {
             <FeatureCard title="Risk Management" description="Utilize AI-powered tools to assess and manage financial risks, offering strategies to mitigate potential losses and protect your investments." className="grow shrink w-full max-w-[648px] max-md:w-full" />
             <FeatureCard title="Real-Time Market Analysis" description="Access up-to-the-minute market data and analysis to make informed investment decisions." className="grow shrink w-full max-w-[352px] max-md:w-full" />
           </div>
-        </div>
-      </div>
-      
-      {/* Background image section with proper spacing */}
-      <div className="relative w-full mt-20 max-md:mt-10">
-        <div className="relative min-h-[400px] w-full overflow-hidden rounded-[32px] max-md:min-h-[200px] max-md:rounded-[20px]">
-          <img src="https://cdn.builder.io/api/v1/image/assets/9de6021644f9415b8e6ba1d1ef4607ce/f560647242d20c0010f7942774ec2683c6a6f536?placeholderIfAbsent=true" className="absolute h-full w-full object-cover inset-0" alt="Background" />
-          
-          
         </div>
       </div>
     </section>;
