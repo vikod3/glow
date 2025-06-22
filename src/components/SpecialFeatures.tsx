@@ -32,7 +32,7 @@ export const SpecialFeatures: React.FC = () => {
   }, {
     title: "Automated Mixing Mastering",
     description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-    icon: <Sliders className="w-12 h-12 text-white" />
+    icon: <Sliders className="w-10 h-10 text-white" />
   }, {
     title: "Real-Time Collaboration",
     description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
