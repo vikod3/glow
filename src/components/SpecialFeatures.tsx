@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { Image, SlidersHorizontal, Users } from 'lucide-react';
+import { Image, Sliders, Users } from 'lucide-react';
 interface SpecialFeatureCardProps {
   title: string;
   description: string;
@@ -34,7 +35,7 @@ export const SpecialFeatures: React.FC = () => {
   }, {
     title: "Automated Mixing Mastering",
     description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-    icon: <SlidersHorizontal style={{
+    icon: <Sliders style={{
       stroke: 'url(#icon-gradient)'
     }} className="w-10 h-10" />
   }, {

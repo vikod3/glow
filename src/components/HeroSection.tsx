@@ -16,31 +16,9 @@ export const HeroSection: React.FC = () => {
             smarter, faster, and more secure financial decision-making
           </p>
           <div className="w-full max-w-[182px] text-base font-bold leading-[1.7] mt-6 rounded-[100px]">
-            <div 
-              className="w-full overflow-hidden rounded-[100px] backdrop-blur-[6px] flex justify-center items-center gap-3 transition-opacity hover:opacity-90 cursor-pointer"
-              style={{
-                paddingLeft: '28px',
-                paddingRight: '28px',
-                paddingTop: '12px',
-                paddingBottom: '12px',
-                background: 'linear-gradient(90deg, #FF5552 0%, #F62623 100%)',
-                boxShadow: '0px 32px 24px -16px rgba(0, 0, 0, 0.40)',
-                borderRadius: '100px',
-                outline: '1.50px #FF5552 solid',
-                outlineOffset: '-1.50px'
-              }}
-            >
-              <div style={{
-                color: 'white',
-                fontSize: '16px',
-                fontFamily: 'Inter',
-                fontWeight: 700,
-                lineHeight: '27.20px',
-                wordWrap: 'break-word'
-              }}>
-                Get Started
-              </div>
-            </div>
+            <button className="text-white w-full border-[color:var(--Linear,#FF5552)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] backdrop-blur-[6px] min-h-[58px] gap-3 overflow-hidden px-7 py-4 rounded-[100px] border-[1.5px] border-solid max-md:px-5 max-md:min-h-[50px] hover:bg-[rgba(33,33,43,0.80)] transition-colors">
+              Get Started
+            </button>
           </div>
         </div>
       </div>
