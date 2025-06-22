@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 export const ClientLogos: React.FC = () => {
@@ -11,17 +12,17 @@ export const ClientLogos: React.FC = () => {
   ];
 
   return (
-    <section className="self-stretch flex min-h-[265px] w-full flex-col overflow-hidden items-stretch justify-center mt-[134px] py-[69px] max-md:max-w-full max-md:mt-10">
-      <div className="flex w-full flex-col items-stretch px-8 max-md:max-w-full max-md:px-5">
-        <p className="text-[#AAA] text-center text-lg font-normal leading-[31px] max-md:max-w-full">
+    <section className="w-full flex min-h-[265px] flex-col overflow-hidden items-stretch justify-center mt-[134px] py-[69px] max-md:mt-10 max-md:py-10">
+      <div className="flex w-full flex-col items-stretch px-8 max-md:px-4">
+        <p className="text-[#AAA] text-center text-lg font-normal leading-[31px] max-md:text-base">
           Trusted by thousands from worldwide
         </p>
-        <div className="self-center flex gap-6 flex-wrap mt-8 max-md:max-w-full">
+        <div className="flex gap-6 flex-wrap justify-center mt-8 max-md:gap-4 max-md:mt-6">
           {logos.map((logo, index) => (
             <img
               key={index}
               src={logo.src}
-              className="aspect-[2.61] object-contain w-[167px] shrink-0 opacity-60 hover:opacity-100 transition-opacity"
+              className="aspect-[2.61] object-contain w-[167px] shrink-0 opacity-60 hover:opacity-100 transition-opacity max-md:w-[120px] max-sm:w-[100px]"
               alt={logo.alt}
             />
           ))}

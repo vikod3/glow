@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface TestimonialCardProps {
@@ -9,23 +10,23 @@ interface TestimonialCardProps {
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, name, role, avatar }) => {
   return (
-    <article className="justify-center items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] self-stretch flex min-w-60 flex-col overflow-hidden grow shrink w-[307px] my-auto px-4 py-9 rounded-[32px] border-[1.5px] border-solid hover:bg-[rgba(116,116,116,0.15)] transition-colors">
-      <div className="w-80 max-w-full text-[#AAA] font-normal leading-[27px]">
-        <blockquote className="text-[#AAA] opacity-80">
+    <article className="justify-center items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] flex min-w-60 flex-col overflow-hidden grow shrink w-full max-w-[307px] px-4 py-9 rounded-[32px] border-[1.5px] border-solid hover:bg-[rgba(116,116,116,0.15)] transition-colors">
+      <div className="w-full max-w-80 text-[#AAA] font-normal leading-[27px]">
+        <blockquote className="text-[#AAA] opacity-80 max-md:text-sm max-md:leading-[22px]">
           {quote}
         </blockquote>
       </div>
-      <div className="flex w-80 max-w-full gap-4 leading-[1.7] mt-10">
+      <div className="flex w-full max-w-80 gap-4 leading-[1.7] mt-10 max-md:mt-6">
         <img
           src={avatar}
-          className="aspect-[1] object-contain w-[68px] shrink-0 rounded-full"
+          className="aspect-[1] object-contain w-[68px] shrink-0 rounded-full max-md:w-[50px]"
           alt={`${name} avatar`}
         />
         <div>
-          <div className="text-white font-bold">
+          <div className="text-white font-bold max-md:text-sm">
             {name}
           </div>
-          <div className="text-[#AAA] font-normal mt-1">
+          <div className="text-[#AAA] font-normal mt-1 max-md:text-xs">
             {role}
           </div>
         </div>
@@ -75,19 +76,19 @@ export const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section className="w-[1200px] max-w-full mt-[134px] pb-[39px] max-md:mt-10">
-      <div className="flex flex-col items-stretch max-md:max-w-full">
-        <header className="self-center flex w-[911px] max-w-full flex-col items-center text-center">
-          <h2 className="text-white text-6xl font-medium leading-[1.2] tracking-[-1.5px] max-md:max-w-full max-md:text-[40px]">
+    <section className="w-full max-w-[1200px] mt-[134px] pb-[39px] px-4 max-md:mt-10 max-md:px-2">
+      <div className="flex flex-col items-stretch">
+        <header className="flex w-full max-w-[911px] mx-auto flex-col items-center text-center">
+          <h2 className="text-white text-6xl font-medium leading-[1.2] tracking-[-1.5px] max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
             Real Experiences from Our Users
           </h2>
-          <p className="text-[#AAA] text-lg font-normal leading-[31px] opacity-80 w-[633px] mt-6 max-md:max-w-full">
+          <p className="text-[#AAA] text-lg font-normal leading-[31px] opacity-80 w-full max-w-[633px] mt-6 max-md:text-base max-md:leading-[24px]">
             Discover the power of AI-driven financial solutions for smarter,
             faster, and more secure financial decision-making
           </p>
         </header>
-        <div className="w-full text-base mt-20 max-md:max-w-full max-md:mt-10">
-          <div className="flex w-full items-center gap-6 flex-wrap max-md:max-w-full">
+        <div className="w-full text-base mt-20 max-md:mt-10">
+          <div className="flex w-full items-center gap-6 flex-wrap justify-center max-md:flex-col max-md:gap-4">
             {testimonials.slice(0, 3).map((testimonial, index) => (
               <TestimonialCard
                 key={index}
@@ -98,7 +99,7 @@ export const Testimonials: React.FC = () => {
               />
             ))}
           </div>
-          <div className="flex w-full items-center gap-6 flex-wrap mt-6 max-md:max-w-full">
+          <div className="flex w-full items-center gap-6 flex-wrap justify-center mt-6 max-md:flex-col max-md:gap-4 max-md:mt-4">
             {testimonials.slice(3, 6).map((testimonial, index) => (
               <TestimonialCard
                 key={index + 3}
