@@ -16,8 +16,8 @@ export const HeroSection: React.FC = () => {
             smarter, faster, and more secure financial decision-making
           </p>
           <div className="w-full max-w-[182px] text-base font-bold leading-[1.7] mt-6 rounded-[100px]">
-            <button 
-              className="w-full overflow-hidden rounded-[100px] backdrop-blur-[6px] flex justify-center items-center gap-3 transition-opacity hover:opacity-90"
+            <div 
+              className="w-full overflow-hidden rounded-[100px] backdrop-blur-[6px] flex justify-center items-center gap-3 transition-opacity hover:opacity-90 cursor-pointer"
               style={{
                 paddingLeft: '28px',
                 paddingRight: '28px',
@@ -33,14 +33,14 @@ export const HeroSection: React.FC = () => {
               <div style={{
                 color: 'white',
                 fontSize: '16px',
-                fontFamily: 'Be Vietnam',
+                fontFamily: 'Inter',
                 fontWeight: 700,
                 lineHeight: '27.20px',
                 wordWrap: 'break-word'
               }}>
                 Get Started
               </div>
-            </button>
+            </div>
           </div>
         </div>
       </div>
