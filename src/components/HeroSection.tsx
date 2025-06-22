@@ -1,9 +1,6 @@
-
 import React from 'react';
-
 export const HeroSection: React.FC = () => {
-  return (
-    <section className="w-full max-w-[858px] mt-[88px] px-4 max-md:mt-10 max-md:px-2">
+  return <section className="w-full max-w-[858px] mt-[88px] px-4 max-md:mt-10 max-md:px-2">
       <div className="w-full">
         <div className="flex w-full flex-col items-center justify-center">
           <h1 className="text-white text-center text-[68px] font-medium leading-[78px] tracking-[-2.5px] max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px] max-sm:text-[28px] max-sm:leading-[36px]">
@@ -23,12 +20,7 @@ export const HeroSection: React.FC = () => {
         </div>
       </div>
       <div className="flex w-full max-w-[1085px] mt-[88px] rounded-[55px] max-md:mt-10 max-md:rounded-[30px] overflow-hidden">
-        <img
-          src="/lovable-uploads/bd1353e9-95fa-453a-9adb-4a89e832f7f0.png"
-          alt="AI Finance Dashboard Interface"
-          className="w-full h-auto min-h-[581px] max-md:min-h-[300px] object-cover"
-        />
+        <img src="/lovable-uploads/bd1353e9-95fa-453a-9adb-4a89e832f7f0.png" alt="AI Finance Dashboard Interface" className="w-full h-auto min-h-[561px] max-md:min-h-[300px] object-cover" />
       </div>
-    </section>
-  );
+    </section>;
 };
