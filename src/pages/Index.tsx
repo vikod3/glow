@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Header } from '@/components/Header';
 import { HeroSection } from '@/components/HeroSection';
@@ -7,6 +6,7 @@ import { FeaturesSection } from '@/components/FeaturesSection';
 import { SpecialFeatures } from '@/components/SpecialFeatures';
 import { Testimonials } from '@/components/Testimonials';
 import { PricingSection } from '@/components/PricingSection';
+import { FAQSection } from '@/components/FAQSection';
 import { CTASection } from '@/components/CTASection';
 
 const Index: React.FC = () => {
@@ -27,6 +27,7 @@ const Index: React.FC = () => {
             <SpecialFeatures />
             <Testimonials />
             <PricingSection />
+            <FAQSection />
             <CTASection />
           </main>
         </div>
