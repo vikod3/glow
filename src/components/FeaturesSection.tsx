@@ -24,8 +24,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.6
       }
     }
   };
@@ -91,8 +90,7 @@ export const FeaturesSection: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: "easeOut"
+        duration: 0.6
       }
     }
   };
