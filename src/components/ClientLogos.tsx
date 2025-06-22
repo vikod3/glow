@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 export const ClientLogos: React.FC = () => {
   const logos = [
@@ -14,13 +15,51 @@ export const ClientLogos: React.FC = () => {
   // Duplicate logos array for seamless infinite scroll
   const duplicatedLogos = [...logos, ...logos];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
-    <section className="w-full flex min-h-[265px] flex-col overflow-hidden items-stretch justify-center mt-[134px] py-[69px] max-md:mt-10 max-md:py-10">
+    <motion.section 
+      className="w-full flex min-h-[265px] flex-col overflow-hidden items-stretch justify-center mt-[134px] py-[69px] max-md:mt-10 max-md:py-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
       <div className="flex w-full flex-col items-stretch px-8 max-md:px-4">
-        <p className="text-[#AAA] text-center text-lg font-normal leading-[31px] max-md:text-base">
+        <motion.p 
+          className="text-[#AAA] text-center text-lg font-normal leading-[31px] max-md:text-base"
+          variants={itemVariants}
+        >
           Trusted by thousands from worldwide
-        </p>
-        <div className="overflow-hidden mt-8 max-md:mt-6">
+        </motion.p>
+        <motion.div 
+          className="overflow-hidden mt-8 max-md:mt-6"
+          variants={itemVariants}
+        >
           <div className="flex gap-6 animate-marquee">
             {duplicatedLogos.map((logo, index) => (
               <img
@@ -31,8 +70,8 @@ export const ClientLogos: React.FC = () => {
               />
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface TestimonialCardProps {
   quote: string;
@@ -9,8 +10,26 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, name, role, avatar }) => {
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
-    <article className="justify-center items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] flex min-w-60 flex-col overflow-hidden grow shrink w-full max-w-[307px] px-4 py-9 rounded-[32px] border-[1.5px] border-solid hover:bg-[rgba(116,116,116,0.15)] transition-colors">
+    <motion.article 
+      className="justify-center items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] flex min-w-60 flex-col overflow-hidden grow shrink w-full max-w-[307px] px-4 py-9 rounded-[32px] border-[1.5px] border-solid hover:bg-[rgba(116,116,116,0.15)] transition-colors"
+      variants={cardVariants}
+    >
       <div className="w-full max-w-80 text-[#AAA] font-normal leading-[27px]">
         <blockquote className="text-[#AAA] opacity-80 max-md:text-sm max-md:leading-[22px]">
           {quote}
@@ -31,11 +50,37 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ quote, name, role, av
           </div>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
 export const Testimonials: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const headerVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   const testimonials = [
     {
       quote: "AI Finance has transformed the way I manage my finances. The personalized insights and automated features have saved me so much time and effort.",
@@ -76,9 +121,18 @@ export const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section className="w-full max-w-[1200px] mt-[134px] pb-[39px] px-4 max-md:mt-10 max-md:px-2">
+    <motion.section 
+      className="w-full max-w-[1200px] mt-[134px] pb-[39px] px-4 max-md:mt-10 max-md:px-2"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
       <div className="flex flex-col items-stretch">
-        <header className="flex w-full max-w-[911px] mx-auto flex-col items-center text-center">
+        <motion.header 
+          className="flex w-full max-w-[911px] mx-auto flex-col items-center text-center"
+          variants={headerVariants}
+        >
           <h2 className="text-white text-6xl font-medium leading-[1.2] tracking-[-1.5px] max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
             Real Experiences from Our Users
           </h2>
@@ -86,9 +140,12 @@ export const Testimonials: React.FC = () => {
             Discover the power of AI-driven financial solutions for smarter,
             faster, and more secure financial decision-making
           </p>
-        </header>
+        </motion.header>
         <div className="w-full text-base mt-20 max-md:mt-10">
-          <div className="flex w-full items-center gap-6 flex-wrap justify-center max-md:flex-col max-md:gap-4">
+          <motion.div 
+            className="flex w-full items-center gap-6 flex-wrap justify-center max-md:flex-col max-md:gap-4"
+            variants={containerVariants}
+          >
             {testimonials.slice(0, 3).map((testimonial, index) => (
               <TestimonialCard
                 key={index}
@@ -98,8 +155,11 @@ export const Testimonials: React.FC = () => {
                 avatar={testimonial.avatar}
               />
             ))}
-          </div>
-          <div className="flex w-full items-center gap-6 flex-wrap justify-center mt-6 max-md:flex-col max-md:gap-4 max-md:mt-4">
+          </motion.div>
+          <motion.div 
+            className="flex w-full items-center gap-6 flex-wrap justify-center mt-6 max-md:flex-col max-md:gap-4 max-md:mt-4"
+            variants={containerVariants}
+          >
             {testimonials.slice(3, 6).map((testimonial, index) => (
               <TestimonialCard
                 key={index + 3}
@@ -109,9 +169,9 @@ export const Testimonials: React.FC = () => {
                 avatar={testimonial.avatar}
               />
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };

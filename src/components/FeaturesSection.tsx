@@ -1,17 +1,40 @@
+
 import React from 'react';
+import { motion } from 'framer-motion';
+
 interface FeatureCardProps {
   title: string;
   description: string;
   className?: string;
   imageUrl?: string;
 }
+
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
   className = "",
   imageUrl
 }) => {
-  return <article className={`items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] self-stretch flex h-[580px] flex-col overflow-hidden my-auto rounded-[32px] border-[1.5px] border-solid max-md:h-[500px] ${className}`}>
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  return (
+    <motion.article 
+      className={`items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] self-stretch flex h-[580px] flex-col overflow-hidden my-auto rounded-[32px] border-[1.5px] border-solid max-md:h-[500px] ${className}`}
+      variants={cardVariants}
+    >
       {imageUrl && <div className="w-full h-48 overflow-hidden max-md:h-32">
           <img src={imageUrl} alt={title} className="w-full h-full object-cover pt-[20px]" />
         </div>}
@@ -43,12 +66,50 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           </div>
         </div>
       </div>
-    </article>;
+    </motion.article>
+  );
 };
+
 export const FeaturesSection: React.FC = () => {
-  return <section className="w-full max-w-[1200px] mt-[134px] px-4 max-md:mt-10 max-md:px-2">
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const headerVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  return (
+    <motion.section 
+      className="w-full max-w-[1200px] mt-[134px] px-4 max-md:mt-10 max-md:px-2"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
       <div className="flex flex-col items-stretch max-md:max-w-full">
-        <header className="self-center flex w-[911px] max-w-full flex-col items-center text-center">
+        <motion.header 
+          className="self-center flex w-[911px] max-w-full flex-col items-center text-center"
+          variants={headerVariants}
+        >
           <h2 className="text-white text-6xl font-medium leading-[72px] tracking-[-1.5px] max-md:max-w-full max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
             Explore the Robust Features of
             <br />
@@ -58,13 +119,17 @@ export const FeaturesSection: React.FC = () => {
             Discover the power of AI-driven financial solutions for smarter,
             faster, and more secure financial decision-making
           </p>
-        </header>
-        <div className="w-full mt-20 max-md:mt-10">
+        </motion.header>
+        <motion.div 
+          className="w-full mt-20 max-md:mt-10"
+          variants={containerVariants}
+        >
           <div className="flex w-full items-stretch gap-6 flex-wrap max-md:flex-col max-md:gap-4">
             <FeatureCard title="Risk Management" description="Utilize AI-powered tools to assess and manage financial risks, offering strategies to mitigate potential losses and protect your investments." className="grow shrink w-full max-w-[648px] max-md:w-full" imageUrl="/lovable-uploads/039a2b9d-4617-4cff-9bc9-1136b78ebf4c.png" />
             <FeatureCard title="Real-Time Market Analysis" description="Access up-to-the-minute market data and analysis to make informed investment decisions." className="grow shrink w-full max-w-[352px] max-md:w-full" imageUrl="/lovable-uploads/14147cd7-55a3-4018-9c27-de2e43ec810a.png" />
           </div>
-        </div>
+        </motion.div>
       </div>
-    </section>;
+    </motion.section>
+  );
 };
