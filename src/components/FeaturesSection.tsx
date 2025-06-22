@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 
 interface FeatureCardProps {
@@ -14,9 +16,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   imageUrl
 }) => {
   return <article className={`items-center border-[color:var(--stroke-15-card,rgba(255,255,255,0.40))] shadow-[2px_4px_16px_0px_rgba(248,248,248,0.06)_inset] backdrop-blur-[50px] bg-[rgba(116,116,116,0.07)] self-stretch flex h-[580px] flex-col overflow-hidden my-auto rounded-[32px] border-[1.5px] border-solid max-md:h-[500px] ${className}`}>
-      {imageUrl && <div className="w-full h-64 bg-black rounded-lg overflow-hidden pt-16 max-md:h-32 max-md:pt-6">
-          <img src={imageUrl} alt={title} className="w-full h-full object-contain object-center" />
-        </div>}
+      {imageUrl && (
+        <div className="w-full h-48 overflow-hidden max-md:h-32">
+          <img 
+            src={imageUrl} 
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
       <div className="flex max-w-full flex-col items-stretch justify-center px-14 py-8 flex-1 max-md:px-5 max-md:py-6">
         <div className="w-full max-md:max-w-full">
           <div className="flex w-full flex-col items-stretch max-md:max-w-full">
@@ -30,16 +38,17 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
                 </p>
               </div>
             </div>
-            <button className="text-white mt-8 px-8 py-3 rounded-[32px] max-md:px-5 max-md:text-sm hover:opacity-90 transition-opacity" style={{
-            background: 'linear-gradient(90deg, #FF5552 0%, #F62623 100%)',
-            boxShadow: '2px 4px 16px rgba(248, 248, 248, 0.06) inset',
-            outline: '1px rgba(255, 255, 255, 0.25) solid',
-            outlineOffset: '-1px',
-            backdropFilter: 'blur(50px)',
-            fontWeight: '700',
-            fontSize: '16px',
-            lineHeight: '24px'
-          }}>
+            <button className="text-white mt-8 px-8 py-3 rounded-[32px] max-md:px-5 max-md:text-sm hover:opacity-90 transition-opacity" 
+              style={{
+                background: 'linear-gradient(90deg, #FF5552 0%, #F62623 100%)',
+                boxShadow: '2px 4px 16px rgba(248, 248, 248, 0.06) inset',
+                outline: '1px rgba(255, 255, 255, 0.25) solid',
+                outlineOffset: '-1px',
+                backdropFilter: 'blur(50px)',
+                fontWeight: '700',
+                fontSize: '16px',
+                lineHeight: '24px'
+              }}>
               Learn More
             </button>
           </div>
@@ -62,22 +71,23 @@ export const FeaturesSection: React.FC = () => {
             faster, and more secure financial decision-making
           </p>
         </header>
-        
-        {/* Responsive Image Component */}
-        <div className="w-full h-64 bg-black rounded-lg overflow-hidden mt-20 max-md:mt-10">
-          <img 
-            src="/lovable-uploads/039a2b9d-4617-4cff-9bc9-1136b78ebf4c.png" 
-            alt="AI Finance Platform Feature" 
-            className="w-full h-full object-contain object-center"
-          />
-        </div>
-        
         <div className="w-full mt-20 max-md:mt-10">
           <div className="flex w-full items-stretch gap-6 flex-wrap max-md:flex-col max-md:gap-4">
-            <FeatureCard title="Risk Management" description="Utilize AI-powered tools to assess and manage financial risks, offering strategies to mitigate potential losses and protect your investments." className="grow shrink w-full max-w-[648px] max-md:w-full" imageUrl="/lovable-uploads/039a2b9d-4617-4cff-9bc9-1136b78ebf4c.png" />
-            <FeatureCard title="Real-Time Market Analysis" description="Access up-to-the-minute market data and analysis to make informed investment decisions." className="grow shrink w-full max-w-[352px] max-md:w-full" imageUrl="/lovable-uploads/14147cd7-55a3-4018-9c27-de2e43ec810a.png" />
+            <FeatureCard 
+              title="Risk Management" 
+              description="Utilize AI-powered tools to assess and manage financial risks, offering strategies to mitigate potential losses and protect your investments." 
+              className="grow shrink w-full max-w-[648px] max-md:w-full"
+              imageUrl="/lovable-uploads/039a2b9d-4617-4cff-9bc9-1136b78ebf4c.png"
+            />
+            <FeatureCard 
+              title="Real-Time Market Analysis" 
+              description="Access up-to-the-minute market data and analysis to make informed investment decisions." 
+              className="grow shrink w-full max-w-[352px] max-md:w-full"
+              imageUrl="/lovable-uploads/14147cd7-55a3-4018-9c27-de2e43ec810a.png"
+            />
           </div>
         </div>
       </div>
     </section>;
 };
+
