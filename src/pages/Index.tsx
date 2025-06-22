@@ -6,6 +6,7 @@ import { ClientLogos } from '@/components/ClientLogos';
 import { FeaturesSection } from '@/components/FeaturesSection';
 import { SpecialFeatures } from '@/components/SpecialFeatures';
 import { Testimonials } from '@/components/Testimonials';
+import { PricingSection } from '@/components/PricingSection';
 import { CTASection } from '@/components/CTASection';
 
 const Index: React.FC = () => {
@@ -25,6 +26,7 @@ const Index: React.FC = () => {
             <FeaturesSection />
             <SpecialFeatures />
             <Testimonials />
+            <PricingSection />
             <CTASection />
           </main>
         </div>
