@@ -36,7 +36,7 @@ export const SpecialFeatures: React.FC = () => {
   }, {
     title: "Real-Time Collaboration",
     description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-    icon: <Users className="w-12 h-12 text-white" />
+    icon: <Users className="w-10 h-10 text-white" />
   }];
   return <section className="flex w-full max-w-[1200px] flex-col items-stretch mt-[134px] px-4 max-md:mt-10 max-md:px-2">
       <header className="flex w-full max-w-[911px] mx-auto flex-col items-center text-center">
