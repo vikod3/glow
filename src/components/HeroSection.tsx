@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -28,15 +27,27 @@ export const HeroSection: React.FC = () => {
     }
   };
 
+  // Generate rainbow elements
+  const rainbowElements = Array.from({ length: 25 }, (_, i) => (
+    <div key={i} className={`rainbow rainbow-${i + 1}`} />
+  ));
+
   return (
     <motion.section 
-      className="w-full max-w-[858px] mt-[88px] px-4 max-md:mt-10 max-md:px-2"
+      className="w-full max-w-[858px] mt-[88px] px-4 max-md:mt-10 max-md:px-2 relative"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
       variants={containerVariants}
     >
-      <div className="w-full">
+      {/* Rainbow Background Animation */}
+      <div className="rainbow-container">
+        {rainbowElements}
+        <div className="h"></div>
+        <div className="v"></div>
+      </div>
+
+      <div className="w-full relative z-10">
         <div className="flex w-full flex-col items-center justify-center">
           <motion.h1 
             className="text-white text-center text-[68px] font-medium leading-[78px] tracking-[-2.5px] max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px] max-sm:text-[28px] max-sm:leading-[36px]"
