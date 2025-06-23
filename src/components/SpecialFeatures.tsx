@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Sliders, Users } from 'lucide-react';
+import { Image, Sliders, Users, Settings, Settings2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 interface SpecialFeatureCardProps {
   title: string;
@@ -51,6 +51,7 @@ export const SpecialFeatures: React.FC = () => {
       }
     }
   };
+
   const headerVariants = {
     hidden: {
       opacity: 0,
@@ -64,25 +65,27 @@ export const SpecialFeatures: React.FC = () => {
       }
     }
   };
+
   const features = [{
     title: "Create Inspiring Melodies",
     description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-    icon: <Image className="w-10 h-10" style={{
+    icon: <Settings className="w-10 h-10" style={{
       stroke: 'url(#icon-gradient)'
     }} />
   }, {
     title: "Automated Mixing Mastering",
     description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-    icon: <Sliders style={{
+    icon: <Settings2 style={{
       stroke: 'url(#icon-gradient)'
     }} className="w-10 max-h-8" />
   }, {
     title: "Real-Time Collaboration",
     description: "With the AI Melody Generator, you can generate unique and captivating melodies based on your style.",
-    icon: <Users className="w-10 h-10" style={{
+    icon: <Settings className="w-10 h-10" style={{
       stroke: 'url(#icon-gradient)'
     }} />
   }];
+
   return <motion.section className="flex w-full max-w-[1200px] flex-col items-stretch mt-[134px] px-4 max-md:mt-10 max-md:px-2" initial="hidden" whileInView="visible" viewport={{
     once: true,
     margin: "-100px"
