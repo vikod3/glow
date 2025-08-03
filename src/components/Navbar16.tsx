@@ -55,7 +55,7 @@ export const Navbar16 = (props: Navbar16Props) => {
     >
       <div className="mx-auto flex size-full items-center justify-between">
         <a href={logo.url}>
-          <img src={logo.src} alt={logo.alt} />
+          <img src={logo.src} alt={logo.alt} className="brightness-0 invert" />
         </a>
         <div className="flex items-center justify-center gap-2 lg:gap-4">
           <button className="text-white text-base font-bold leading-[1.7] border-[color:var(--Linear,#FF5552)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] backdrop-blur-[6px] min-h-[48px] gap-3 overflow-hidden px-6 py-2 rounded-[100px] border-[1.5px] border-solid hover:bg-[rgba(33,33,43,0.80)] transition-colors">
