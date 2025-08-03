@@ -1,6 +1,7 @@
 import React from 'react';
 import { Header23 } from '@/components/Header23';
 import { Navbar16 } from '@/components/Navbar16';
+import { Layout228 } from '@/components/Layout228';
 
 const Header23Page: React.FC = () => {
   return (
@@ -10,11 +11,12 @@ const Header23Page: React.FC = () => {
         className="aspect-[1.07] object-contain w-full max-w-[1440px] absolute z-0 h-auto right-0 top-0 max-md:max-w-full"
         alt="Background"
       />
-      <div className="relative z-10 flex w-full flex-col items-center min-h-screen">
+      <div className="relative z-10 flex w-full flex-col items-center">
         <Navbar16 />
         <div className="flex-1 flex items-center justify-center w-full">
           <Header23 />
         </div>
+        <Layout228 />
       </div>
     </div>
   );
