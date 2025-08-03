@@ -1,0 +1,240 @@
+import React from "react";
+import { Button } from "@relume_io/relume-ui";
+import type { ButtonProps } from "@relume_io/relume-ui";
+import { AnimatePresence, motion } from "framer-motion";
+import { useState } from "react";
+import {
+  BiLogoFacebookCircle,
+  BiLogoInstagram,
+  BiLogoLinkedinSquare,
+  BiLogoYoutube,
+} from "react-icons/bi";
+import { FaXTwitter } from "react-icons/fa6";
+
+type ImageProps = {
+  url?: string;
+  src: string;
+  alt?: string;
+};
+
+type SocialMediaLink = {
+  url: string;
+  icon: React.ReactNode;
+};
+
+type NavLink = {
+  url: string;
+  title: string;
+  subMenuLinks?: NavLink[];
+};
+
+type NavBottom = {
+  button: { title: string; url: string };
+  socialMediaLinks: SocialMediaLink[];
+};
+
+type Props = {
+  logo: ImageProps;
+  navLinks: NavLink[];
+  button: ButtonProps;
+  navBottom: NavBottom;
+};
+
+export type Navbar16Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+
+export const Navbar16 = (props: Navbar16Props) => {
+  const { logo, navLinks, button, navBottom } = {
+    ...Navbar16Defaults,
+    ...props,
+  };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  return (
+    <section
+      id="relume"
+      className="relative z-[999] flex min-h-16 w-full items-center border-b border-b-[#333] bg-[#0D0D0D] px-[5%] md:min-h-18"
+    >
+      <div className="mx-auto flex size-full items-center justify-between">
+        <a href={logo.url}>
+          <img src={logo.src} alt={logo.alt} />
+        </a>
+        <div className="flex items-center justify-center gap-2 lg:gap-4">
+          <button className="text-white text-base font-bold leading-[1.7] border-[color:var(--Linear,#FF5552)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] backdrop-blur-[6px] min-h-[48px] gap-3 overflow-hidden px-6 py-2 rounded-[100px] border-[1.5px] border-solid hover:bg-[rgba(33,33,43,0.80)] transition-colors">
+            {button.title}
+          </button>
+          <button
+            className="-mr-2 flex size-12 flex-col items-center justify-center justify-self-end lg:mr-0"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <span className="relative flex size-6 flex-col items-center justify-center">
+              <motion.span
+                className="absolute top-[3px] h-0.5 w-full bg-white"
+                animate={isMenuOpen ? "open" : "close"}
+                variants={topLineVariants}
+              />
+              <motion.span
+                className="absolute h-0.5 w-full bg-white"
+                animate={isMenuOpen ? "open" : "close"}
+                variants={middleLineVariants}
+              />
+              <motion.span
+                className="absolute h-0.5 w-full bg-white"
+                animate={isMenuOpen ? "openSecond" : "closeSecond"}
+                variants={middleLineVariants}
+              />
+              <motion.span
+                className="absolute bottom-[3px] h-0.5 w-full bg-white"
+                animate={isMenuOpen ? "open" : "close"}
+                variants={bottomLineVariants}
+              />
+            </span>
+          </button>
+        </div>
+      </div>
+      <AnimatePresence>
+        {isMenuOpen && <Menu isMenuOpen={isMenuOpen} navLinks={navLinks} navBottom={navBottom} />}
+      </AnimatePresence>
+    </section>
+  );
+};
+
+const Menu = ({
+  navLinks,
+  navBottom,
+  isMenuOpen,
+}: {
+  isMenuOpen: boolean;
+  navBottom: NavBottom;
+  navLinks: NavLink[];
+}) => {
+  return (
+    <div className="absolute inset-x-0 top-full h-[calc(100vh-4rem)] w-full overflow-hidden md:h-[calc(100vh-4.5rem)]">
+      <motion.div
+        variants={{
+          open: { opacity: 1 },
+          close: { opacity: 0 },
+        }}
+        animate={isMenuOpen ? "open" : "close"}
+        initial="close"
+        exit="close"
+        transition={{ duration: 0.2 }}
+        className="flex h-full flex-col overflow-auto bg-[#0D0D0D] px-[5%] pt-0.5"
+      >
+        <div className="my-auto grid grid-cols-1 gap-x-10 gap-y-4 py-4 text-center md:py-0">
+          {navLinks.map((navLink, index) => (
+            <a
+              key={index}
+              href={navLink.url}
+              className="py-2 text-2xl font-bold leading-[1.2] text-white md:text-10xl hover:text-[#AAA] transition-colors"
+            >
+              {navLink.title}
+            </a>
+          ))}
+        </div>
+        <div className="flex min-h-18 items-center justify-between gap-x-4">
+          <a 
+            href={navBottom.button.url}
+            className="text-md underline text-white hover:text-[#AAA] transition-colors md:text-xl"
+          >
+            {navBottom.button.title}
+          </a>
+          <div className="flex items-center gap-3">
+            {navBottom.socialMediaLinks.map((link, index) => (
+              <a key={index} href={link.url} className="text-white hover:text-[#AAA] transition-colors">
+                {link.icon}
+              </a>
+            ))}
+          </div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export const Navbar16Defaults: Props = {
+  logo: {
+    url: "#",
+    src: "https://d22po4pjz3o32e.cloudfront.net/logo-image.svg",
+    alt: "Relume placeholder logo",
+  },
+  navLinks: [
+    {
+      url: "#",
+      title: "Link One",
+    },
+    {
+      url: "#",
+      title: "Link Two",
+    },
+    {
+      url: "#",
+      title: "Link Three",
+    },
+    {
+      url: "#",
+      title: "Link Four",
+    },
+    {
+      url: "#",
+      title: "Link Five",
+    },
+    {
+      url: "#",
+      title: "Link Six",
+    },
+  ],
+  navBottom: {
+    button: { title: "Contact", url: "#" },
+    socialMediaLinks: [
+      { url: "#", icon: <BiLogoFacebookCircle className="size-6" /> },
+      { url: "#", icon: <BiLogoInstagram className="size-6" /> },
+      { url: "#", icon: <FaXTwitter className="size-6" /> },
+      { url: "#", icon: <BiLogoLinkedinSquare className="size-6" /> },
+      { url: "#", icon: <BiLogoYoutube className="size-6" /> },
+    ],
+  },
+  button: {
+    title: "Get Started",
+    size: "sm",
+  },
+};
+
+const topLineVariants = {
+  open: {
+    width: 0,
+    transition: { duration: 0.1, ease: "easeIn" as const },
+  },
+  close: {
+    width: "100%",
+    transition: { duration: 0.1, delay: 0.3, ease: "linear" as const },
+  },
+};
+
+const middleLineVariants = {
+  open: {
+    rotate: 135,
+    transition: { duration: 0.3, delay: 0.1, ease: "easeInOut" as const },
+  },
+  close: {
+    rotate: 0,
+    transition: { duration: 0.3, ease: "easeInOut" as const },
+  },
+  openSecond: {
+    rotate: 45,
+    transition: { duration: 0.3, delay: 0.1, ease: "easeInOut" as const },
+  },
+  closeSecond: {
+    rotate: 0,
+    transition: { duration: 0.3, ease: "easeInOut" as const },
+  },
+};
+
+const bottomLineVariants = {
+  open: {
+    width: 0,
+    transition: { duration: 0.1, ease: "easeIn" as const },
+  },
+  close: {
+    width: "100%",
+    transition: { duration: 0.1, delay: 0.3, ease: "linear" as const },
+  },
+};
