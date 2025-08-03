@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button, Input } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
+import { motion } from "framer-motion";
 
 type Props = {
   heading: string;
@@ -20,6 +21,20 @@ export const Cta30 = (props: Cta30Props) => {
   const { heading, description, inputPlaceholder, button, termsAndConditions, video, videoType } = {
     ...Cta30Defaults,
     ...props,
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8
+      }
+    }
   };
 
   const [emailInput, setEmailInput] = useState<string>("");
@@ -44,8 +59,15 @@ export const Cta30 = (props: Cta30Props) => {
   };
 
   return (
-    <section id="relume" className="relative w-full py-16 md:py-24 lg:py-28 h-[800px]">
-      <div className="container relative z-10 max-w-lg text-center px-[5%]">
+    <motion.section 
+      id="relume" 
+      className="relative w-full py-16 md:py-24 lg:py-28 h-[800px]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={itemVariants}
+    >
+      <motion.div className="container relative z-10 max-w-lg text-center px-[5%]" variants={itemVariants}>
         <h2 className="mb-5 text-white text-6xl font-medium leading-tight tracking-[-2.5px] md:mb-6 md:text-9xl lg:text-10xl max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
           {heading}
         </h2>
@@ -72,14 +94,14 @@ export const Cta30 = (props: Cta30Props) => {
           </form>
           <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
         </div>
-      </div>
+      </motion.div>
       <div className="absolute inset-0 z-0">
         <video className="absolute inset-0 aspect-video size-full object-cover" autoPlay loop muted>
           <source src={video} type={videoType} />
         </video>
         <div className="absolute inset-0 bg-black/50" />
       </div>
-    </section>
+    </motion.section>
   );
 };
 

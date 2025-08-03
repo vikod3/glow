@@ -2,6 +2,7 @@ import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { BiCheck } from "react-icons/bi";
 import { MdWorkspaces, MdBusiness } from "react-icons/md";
+import { motion } from "framer-motion";
 
 type ImageProps = {
   src: string;
@@ -31,23 +32,58 @@ export const Pricing11 = (props: Pricing11Props) => {
     ...Pricing11Defaults,
     ...props,
   };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8
+      }
+    }
+  };
+
   return (
-    <section id="relume" className="w-full py-16 md:py-24 lg:py-28 bg-[#130D0C]">
+    <motion.section 
+      id="relume" 
+      className="w-full py-16 md:py-24 lg:py-28 bg-[#130D0C]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
       <div className="w-full max-w-none mx-auto px-[5%]">
-        <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
+        <motion.div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20" variants={itemVariants}>
           <p className="mb-3 font-semibold md:mb-4 text-[#AAA]">{tagline}</p>
           <h2 className="mb-5 text-white text-6xl font-medium leading-tight tracking-[-2.5px] md:mb-6 md:text-9xl lg:text-10xl max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
             {heading}
           </h2>
           <p className="text-[#AAA] text-lg font-normal leading-[31px] opacity-80 md:text-md max-md:text-base max-md:leading-[24px]">{description}</p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {pricingPlans.map((plan, index) => (
-            <PricingPlan key={index} plan={plan} />
+            <motion.div key={index} variants={itemVariants}>
+              <PricingPlan plan={plan} />
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

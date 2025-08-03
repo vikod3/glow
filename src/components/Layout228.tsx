@@ -2,6 +2,7 @@ import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { RxChevronRight } from "react-icons/rx";
 import { MdAutoAwesome, MdSecurity, MdTrendingUp } from "react-icons/md";
+import { motion } from "framer-motion";
 
 type ImageProps = {
   src: string;
@@ -25,20 +26,53 @@ export type Layout228Props = React.ComponentPropsWithoutRef<"section"> & Partial
 
 export const Layout228 = (props: Layout228Props) => {
   const { heading, description, sections } = { ...Layout228Defaults, ...props };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 30 
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8
+      }
+    }
+  };
+
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#130D0C]">
+    <motion.section 
+      id="relume" 
+      className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#130D0C]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+    >
       <div className="w-full max-w-none mx-auto">
-        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+        <motion.div className="text-center mb-12 md:mb-16 lg:mb-20" variants={itemVariants}>
           <h2 className="mb-5 text-white text-6xl font-medium leading-tight tracking-[-2.5px] md:mb-6 md:text-9xl lg:text-10xl max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
             {heading}
           </h2>
           <p className="text-[#AAA] text-lg font-normal leading-[31px] opacity-80 md:text-md max-md:text-base max-md:leading-[24px] max-w-3xl mx-auto">
             {description}
           </p>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 items-start justify-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
           {sections.map((section, index) => (
-            <div key={index} className="flex w-full flex-col items-center text-center">
+            <motion.div key={index} className="flex w-full flex-col items-center text-center" variants={itemVariants}>
               <div className="rb-5 mb-5 md:mb-6">
                 {index === 0 && <MdAutoAwesome className="size-12 text-white" />}
                 {index === 1 && <MdSecurity className="size-12 text-white" />}
@@ -58,11 +92,11 @@ export const Layout228 = (props: Layout228Props) => {
                   </button>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
