@@ -64,7 +64,7 @@ export const Cta30 = (props: Cta30Props) => {
         <video className="absolute inset-0 aspect-video size-full object-cover" autoPlay loop muted>
           <source src={video} type={videoType} />
         </video>
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="absolute inset-0 bg-black/50 h-screen" />
       </div>
     </section>
   );
