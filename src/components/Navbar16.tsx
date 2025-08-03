@@ -51,7 +51,7 @@ export const Navbar16 = (props: Navbar16Props) => {
   return (
     <section
       id="relume"
-      className="relative z-[999] flex min-h-16 w-full items-center border-b border-b-[#333] bg-[#0D0D0D] px-[5%] md:min-h-18"
+      className="relative z-[999] flex min-h-16 w-full items-center border-b border-b-[#333] bg-[#130D0C] px-[5%] md:min-h-18"
     >
       <div className="mx-auto flex size-full items-center justify-between">
         <a href={logo.url}>
