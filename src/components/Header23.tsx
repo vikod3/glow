@@ -46,7 +46,7 @@ export const Header23 = (props: Header23Props) => {
   return (
     <motion.section 
       id="relume" 
-      className="px-[5%] py-16 md:py-24 lg:py-28 bg-background min-h-screen flex items-center"
+      className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#0D0D0D] min-h-screen flex items-center"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
