@@ -10,7 +10,7 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="w-full flex flex-col items-center text-base justify-center px-4 py-6 max-md:px-2">
+    <header className="w-full flex flex-col items-center text-base justify-center px-4 py-6 max-md:px-2 bg-[#130D0C]">
       <div className="w-full max-w-[1200px]">
         <div className="flex w-full items-center justify-between gap-4">
           <div className="flex items-center gap-3 text-[28px] text-white font-medium whitespace-nowrap text-center tracking-[-1.88px] leading-[1.1] max-md:text-[24px]">
