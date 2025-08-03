@@ -23,7 +23,7 @@ export type Layout228Props = React.ComponentPropsWithoutRef<"section"> & Partial
 export const Layout228 = (props: Layout228Props) => {
   const { sections } = { ...Layout228Defaults, ...props };
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#130D0C]">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#0D0D0D]">
       <div className="container">
         <div className="grid grid-cols-1 items-start justify-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
           {sections.map((section, index) => (

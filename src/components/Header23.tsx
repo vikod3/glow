@@ -43,7 +43,7 @@ export const Header23 = (props: Header23Props) => {
   };
 
   return (
-    <section className="w-full min-h-screen bg-[#130D0C] flex items-center justify-center px-[5%] py-16 md:py-24 lg:py-28 relative overflow-hidden">
+    <section className="w-full min-h-screen bg-[#0D0D0D] flex items-center justify-center px-[5%] py-16 md:py-24 lg:py-28 relative overflow-hidden">
       <video
         className="absolute inset-0 w-full h-full object-cover mix-blend-color-dodge"
         autoPlay
