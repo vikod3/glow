@@ -31,7 +31,7 @@ export const Cta30 = (props: Cta30Props) => {
   };
 
   return (
-    <section id="relume" className="relative w-full py-16 md:py-24 lg:py-28">
+    <section id="relume" className="relative w-full py-16 md:py-24 lg:py-28 h-[800px]">
       <div className="container relative z-10 max-w-lg text-center px-[5%]">
         <h2 className="mb-5 text-white text-6xl font-medium leading-tight tracking-[-2.5px] md:mb-6 md:text-9xl lg:text-10xl max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
           {heading}
@@ -64,7 +64,7 @@ export const Cta30 = (props: Cta30Props) => {
         <video className="absolute inset-0 aspect-video size-full object-cover" autoPlay loop muted>
           <source src={video} type={videoType} />
         </video>
-        <div className="absolute inset-0 bg-black/50 h-screen" />
+        <div className="absolute inset-0 bg-black/50" />
       </div>
     </section>
   );
