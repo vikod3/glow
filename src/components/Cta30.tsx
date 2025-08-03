@@ -28,11 +28,13 @@ export const Cta30 = (props: Cta30Props) => {
     try {
       await fetch("https://hook.eu2.make.com/rrh11ho4rdujmyqx4spfu9oybiq2a4vb", {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(emailInput),
       });
+      console.log("Email sent successfully");
     } catch (error) {
       console.error("Failed to send email:", error);
     }
