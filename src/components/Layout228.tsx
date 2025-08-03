@@ -29,10 +29,10 @@ export const Layout228 = (props: Layout228Props) => {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#130D0C]">
       <div className="w-full max-w-none mx-auto">
         <div className="text-center mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 className="mb-5 text-white text-6xl font-medium leading-tight tracking-[-2.5px] md:mb-6 md:text-9xl lg:text-10xl max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
             {heading}
           </h2>
-          <p className="text-lg md:text-xl text-[#AAA] max-w-3xl mx-auto leading-relaxed">
+          <p className="text-[#AAA] text-lg font-normal leading-[31px] opacity-80 md:text-md max-md:text-base max-md:leading-[24px] max-w-3xl mx-auto">
             {description}
           </p>
         </div>
