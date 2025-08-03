@@ -45,14 +45,14 @@ export const Header23 = (props: Header23Props) => {
   return (
     <section className="w-full min-h-screen bg-[#0D0D0D] flex items-center justify-center px-[5%] py-16 md:py-24 lg:py-28 relative overflow-hidden">
       <video
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover mix-blend-color-dodge"
         autoPlay
         muted
         loop
         playsInline
         controls={false}
       >
-        <source src="https://res.cloudinary.com/dqd4dvem7/video/upload/v1753689005/pulse_mlmvay.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dqd4dvem7/video/upload/v1753690677/grid_1_m37hvl.mp4" type="video/mp4" />
       </video>
       <motion.div 
         className="container relative z-10"
