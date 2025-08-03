@@ -25,16 +25,19 @@ export const Cta30 = (props: Cta30Props) => {
   const [emailInput, setEmailInput] = useState<string>("");
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log("Submitting email:", emailInput);
+    
     try {
-      await fetch("https://hook.eu2.make.com/rrh11ho4rdujmyqx4spfu9oybiq2a4vb", {
+      const response = await fetch("https://hook.eu2.make.com/rrh11ho4rdujmyqx4spfu9oybiq2a4vb", {
         method: "POST",
         mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify(emailInput),
+        body: `email=${encodeURIComponent(emailInput)}`,
       });
-      console.log("Email sent successfully");
+      console.log("Request sent");
+      setEmailInput(""); // Clear form on success
     } catch (error) {
       console.error("Failed to send email:", error);
     }
