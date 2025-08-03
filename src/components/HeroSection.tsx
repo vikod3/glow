@@ -17,13 +17,30 @@ export const HeroSection: React.FC = () => {
   const itemVariants = {
     hidden: { 
       opacity: 0, 
-      y: 20 
+      y: 30 
     },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6
+        duration: 0.8,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  const imageVariants = {
+    hidden: { 
+      opacity: 0, 
+      scale: 0.95 
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1,
+        delay: 0.5,
+        ease: "easeOut"
       }
     }
   };
@@ -32,8 +49,7 @@ export const HeroSection: React.FC = () => {
     <motion.section 
       className="w-full max-w-[858px] mt-[88px] px-4 max-md:mt-10 max-md:px-2"
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      animate="visible"
       variants={containerVariants}
     >
       <div className="w-full">
@@ -65,7 +81,7 @@ export const HeroSection: React.FC = () => {
       </div>
       <motion.div 
         className="flex w-full max-w-[1085px] mt-[88px] rounded-[55px] max-md:mt-10 max-md:rounded-[30px] overflow-hidden"
-        variants={itemVariants}
+        variants={imageVariants}
       >
         <img src="/lovable-uploads/bd1353e9-95fa-453a-9adb-4a89e832f7f0.png" alt="AI Finance Dashboard Interface" className="w-full h-auto min-h-[561px] max-md:min-h-[300px] object-cover" />
       </motion.div>
