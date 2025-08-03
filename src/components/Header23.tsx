@@ -61,7 +61,7 @@ export const Header23 = (props: Header23Props) => {
         viewport={{ once: true, margin: "-100px" }}
         variants={containerVariants}
       >
-        <div className="mx-auto w-full max-w-lg text-center">
+        <div className="mx-auto w-full max-w-lg text-center mb-[300px]">
           <motion.h1 
             className="mb-5 text-white text-6xl font-medium leading-tight tracking-[-2.5px] md:mb-6 md:text-9xl lg:text-10xl max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]"
             variants={itemVariants}
