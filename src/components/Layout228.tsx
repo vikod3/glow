@@ -16,16 +16,26 @@ type SectionProps = {
 };
 
 type Props = {
+  heading?: string;
+  description?: string;
   sections: SectionProps[];
 };
 
 export type Layout228Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
 export const Layout228 = (props: Layout228Props) => {
-  const { sections } = { ...Layout228Defaults, ...props };
+  const { heading, description, sections } = { ...Layout228Defaults, ...props };
   return (
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#130D0C]">
       <div className="w-full max-w-none mx-auto">
+        <div className="text-center mb-12 md:mb-16 lg:mb-20">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            {heading}
+          </h2>
+          <p className="text-lg md:text-xl text-[#AAA] max-w-3xl mx-auto leading-relaxed">
+            {description}
+          </p>
+        </div>
         <div className="grid grid-cols-1 items-start justify-center gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
           {sections.map((section, index) => (
             <div key={index} className="flex w-full flex-col items-center text-center">
@@ -57,6 +67,8 @@ export const Layout228 = (props: Layout228Props) => {
 };
 
 export const Layout228Defaults: Props = {
+  heading: "Powerful Features for Your Success",
+  description: "Discover the comprehensive tools and capabilities that will transform your workflow and drive your business forward.",
   sections: [
     {
       image: {
