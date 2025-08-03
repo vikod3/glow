@@ -2,6 +2,7 @@ import React from 'react';
 import { Header23 } from '@/components/Header23';
 import { Navbar16 } from '@/components/Navbar16';
 import { Layout228 } from '@/components/Layout228';
+import { Pricing11 } from '@/components/Pricing11';
 
 const Header23Page: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const Header23Page: React.FC = () => {
           <Header23 />
         </div>
         <Layout228 />
+        <Pricing11 />
       </div>
     </div>
   );
