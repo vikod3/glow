@@ -32,8 +32,8 @@ export const Pricing11 = (props: Pricing11Props) => {
     ...props,
   };
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#130D0C]">
-      <div className="w-full max-w-none mx-auto">
+    <section id="relume" className="w-full py-16 md:py-24 lg:py-28 bg-[#130D0C]">
+      <div className="w-full max-w-none mx-auto px-[5%]">
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4 text-[#AAA]">{tagline}</p>
           <h2 className="mb-5 text-white text-6xl font-medium leading-tight tracking-[-2.5px] md:mb-6 md:text-9xl lg:text-10xl max-md:text-[32px] max-md:leading-[40px] max-md:tracking-[-1px]">
