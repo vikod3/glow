@@ -23,11 +23,19 @@ export const Cta30 = (props: Cta30Props) => {
   };
 
   const [emailInput, setEmailInput] = useState<string>("");
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({
-      emailInput,
-    });
+    try {
+      await fetch("https://hook.eu2.make.com/rrh11ho4rdujmyqx4spfu9oybiq2a4vb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(emailInput),
+      });
+    } catch (error) {
+      console.error("Failed to send email:", error);
+    }
   };
 
   return (
