@@ -37,9 +37,12 @@ export const Layout228 = (props: Layout228Props) => {
               <p className="text-[#AAA]">{section.description}</p>
               <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
                 {section.buttons.map((button, index) => (
-                  <Button key={index} {...button}>
+                  <button
+                    key={index}
+                    className="text-white text-base font-bold leading-[1.7] border-[color:var(--Linear,#FF5552)] shadow-[0px_0px_8px_0px_rgba(248,248,248,0.25)_inset,0px_32px_24px_-16px_rgba(0,0,0,0.40)] backdrop-blur-[6px] min-h-[58px] gap-3 overflow-hidden px-7 py-4 rounded-[100px] border-[1.5px] border-solid max-md:px-5 max-md:min-h-[50px] hover:bg-[rgba(33,33,43,0.80)] transition-colors"
+                  >
                     {button.title}
-                  </Button>
+                  </button>
                 ))}
               </div>
             </div>
