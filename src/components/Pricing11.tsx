@@ -31,7 +31,7 @@ export const Pricing11 = (props: Pricing11Props) => {
     ...props,
   };
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#0D0D0D]">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#130D0C]">
       <div className="container max-w-xl">
         <div className="mx-auto mb-12 max-w-lg text-center md:mb-18 lg:mb-20">
           <p className="mb-3 font-semibold md:mb-4 text-[#AAA]">{tagline}</p>
