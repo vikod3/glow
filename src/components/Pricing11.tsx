@@ -1,6 +1,7 @@
 import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
 import { BiCheck } from "react-icons/bi";
+import { MdWorkspaces, MdBusiness } from "react-icons/md";
 
 type ImageProps = {
   src: string;
@@ -54,7 +55,8 @@ const PricingPlan = ({ plan }: { plan: PricingPlan }) => (
   <div className="flex h-full flex-col justify-between border border-[#333] bg-[#130D0C] px-6 py-8 md:p-8 rounded-lg">
     <div>
       <div className="rb-4 mb-4 flex flex-col items-end justify-end">
-        <img src={plan.icon.src} alt={plan.icon.alt} className="size-12 brightness-0 invert" />
+        {plan.planName === "Basic plan" && <MdWorkspaces className="size-12 text-white" />}
+        {plan.planName === "Business plan" && <MdBusiness className="size-12 text-white" />}
       </div>
       <h3 className="text-md font-bold leading-[1.4] md:text-xl text-white">{plan.planName}</h3>
       <h4 className="my-2 text-6xl font-bold md:text-9xl lg:text-10xl text-white">
